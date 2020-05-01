@@ -1,0 +1,5 @@
+br\com\matheussvb\port\driven\ServiceClienteJpa.class
+br\com\matheussvb\port\driver\ClientePort.class
+br\com\matheussvb\model\Cliente$ClienteBuilder.class
+br\com\matheussvb\service\ClienteAdapter.class
+br\com\matheussvb\model\Cliente.class

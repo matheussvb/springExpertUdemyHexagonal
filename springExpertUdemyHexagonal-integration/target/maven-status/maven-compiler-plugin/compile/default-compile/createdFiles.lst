@@ -1,0 +1,4 @@
+br\com\matheussvb\repository\ClienteRepository.class
+br\com\matheussvb\adapter\ClienteAdapter.class
+br\com\matheussvb\entity\Cliente.class
+br\com\matheussvb\model\Cliente.class
