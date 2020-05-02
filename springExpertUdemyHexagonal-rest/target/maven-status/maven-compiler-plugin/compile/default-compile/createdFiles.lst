@@ -1,3 +1,5 @@
+br\com\matheussvb\model\cliente\ClienteRequest.class
+br\com\matheussvb\controller\ClienteController.class
 br\com\matheussvb\model\cliente\ClienteResponse.class
-br\com\matheussvb\ClienteController.class
+br\com\matheussvb\model\cliente\ClienteResponse$ClienteResponseBuilder.class
 br\com\matheussvb\model\RestResponse.class

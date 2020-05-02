@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springExpertUdemyHexagonal-rest" />
         <module name="springExpertUdemyHexagonal-integration" />
-        <module name="springExpertUdemyHexagonal-application" />
+        <module name="springExpertUdemyHexagonal-rest" />
         <module name="springExpertUdemyHexagonal-domain" />
+        <module name="springExpertUdemyHexagonal-application" />
       </profile>
     </annotationProcessing>
   </component>

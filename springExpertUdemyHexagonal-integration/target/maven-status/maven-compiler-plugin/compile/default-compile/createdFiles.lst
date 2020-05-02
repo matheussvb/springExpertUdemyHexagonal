@@ -1,4 +1,5 @@
 br\com\matheussvb\repository\ClienteRepository.class
-br\com\matheussvb\adapter\ClienteAdapter.class
-br\com\matheussvb\entity\Cliente.class
-br\com\matheussvb\model\Cliente.class
+br\com\matheussvb\exception\ClienteNotFoundException.class
+br\com\matheussvb\adapter\ClienteJpaAdapter.class
+br\com\matheussvb\entity\ClienteEntity.class
+br\com\matheussvb\InsertTeste.class
