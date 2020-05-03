@@ -1,6 +1,6 @@
 package br.com.matheussvb.service;
 
-import br.com.matheussvb.model.Cliente;
+import br.com.matheussvb.model.ClienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.matheussvb.port.driven.ClienteJpaPort;
@@ -15,12 +15,12 @@ public class ClienteAdapter implements ClientePort {
     private ClienteJpaPort serviceClienteRepository;
 
     @Override
-    public Cliente findClienteById(final Integer id) {
+    public ClienteDTO findClienteById(final Integer id) {
         return serviceClienteRepository.getClienteById(id);
     }
 
     @Override
-    public Cliente save(Cliente cliente) {
+    public ClienteDTO save(ClienteDTO cliente) {
 
         return serviceClienteRepository.save(cliente);
     }
@@ -31,14 +31,14 @@ public class ClienteAdapter implements ClientePort {
     }
 
     @Override
-    public void update(Integer id, Cliente cliente) {
-        Cliente clienteExists = serviceClienteRepository.getClienteById(id);
+    public void update(Integer id, ClienteDTO cliente) {
+        ClienteDTO clienteExists = serviceClienteRepository.getClienteById(id);
         cliente.setId(clienteExists.getId());
         serviceClienteRepository.update(cliente);
     }
 
     @Override
-    public List<Cliente> findAll(Cliente cliente) {
+    public List<ClienteDTO> findAll(ClienteDTO cliente) {
         return serviceClienteRepository.findAll(cliente);
     }
 }

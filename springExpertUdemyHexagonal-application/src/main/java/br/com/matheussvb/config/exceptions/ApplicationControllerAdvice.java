@@ -7,6 +7,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +35,12 @@ public class ApplicationControllerAdvice {
 
         return new ApiErrors(ex.getMessage());
 
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrors handleMethodNotResponseStatusException(ResponseStatusException exception) {
+        return new ApiErrors(exception.getReason());
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})

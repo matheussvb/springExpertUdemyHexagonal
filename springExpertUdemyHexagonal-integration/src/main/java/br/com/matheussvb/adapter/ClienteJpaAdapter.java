@@ -2,7 +2,7 @@ package br.com.matheussvb.adapter;
 
 import br.com.matheussvb.entity.ClienteEntity;
 import br.com.matheussvb.exception.ClienteNotFoundException;
-import br.com.matheussvb.model.Cliente;
+import br.com.matheussvb.model.ClienteDTO;
 import br.com.matheussvb.port.driven.ClienteJpaPort;
 import br.com.matheussvb.repository.ClienteRepository;
 import org.modelmapper.ModelMapper;
@@ -25,12 +25,12 @@ public class ClienteJpaAdapter implements ClienteJpaPort {
     private ModelMapper modelMapper;
 
     @Override
-    public Cliente getClienteById(final Integer id) {
+    public ClienteDTO getClienteById(final Integer id) {
         ClienteEntity c = clienteRepository.findById(id)
                 .orElseThrow(
                         () -> new ClienteNotFoundException("Cliente não encontrado")
                 );
-        return Cliente.builder()
+        return ClienteDTO.builder()
                 .nome(c.getNome())
                 .cpf(c.getCpf())
                 .id(c.getId())
@@ -38,9 +38,9 @@ public class ClienteJpaAdapter implements ClienteJpaPort {
     }
 
     @Override
-    public Cliente save(final Cliente cliente) {
+    public ClienteDTO save(final ClienteDTO cliente) {
         final ClienteEntity c = clienteRepository.save(modelMapper.map(cliente, ClienteEntity.class));
-        return Cliente.builder()
+        return ClienteDTO.builder()
                 .id(c.getId())
                 .cpf(c.getCpf())
                 .nome(c.getNome())
@@ -57,13 +57,13 @@ public class ClienteJpaAdapter implements ClienteJpaPort {
     }
 
     @Override
-    public void update(Cliente cliente) {
+    public void update(ClienteDTO cliente) {
         final ClienteEntity c = modelMapper.map(cliente, ClienteEntity.class);
         clienteRepository.save(c);
     }
 
     @Override
-    public List<Cliente> findAll(Cliente cliente) {
+    public List<ClienteDTO> findAll(ClienteDTO cliente) {
         ClienteEntity c = modelMapper.map(cliente, ClienteEntity.class);
         ExampleMatcher matcher = ExampleMatcher
                 .matching()
@@ -72,7 +72,9 @@ public class ClienteJpaAdapter implements ClienteJpaPort {
                         ExampleMatcher.StringMatcher.CONTAINING);
 
         Example example = Example.of(c, matcher);
-        Type listType = new TypeToken<List<Cliente>>() {}.getType();
+
+        Type listType = new TypeToken<List<ClienteDTO>>() {}.getType();
         return modelMapper.map(clienteRepository.findAll(example), listType);
+
     }
 }

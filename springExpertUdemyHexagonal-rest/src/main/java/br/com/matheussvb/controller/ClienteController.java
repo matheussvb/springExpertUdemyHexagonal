@@ -1,6 +1,6 @@
 package br.com.matheussvb.controller;
 
-import br.com.matheussvb.model.Cliente;
+import br.com.matheussvb.model.ClienteDTO;
 import br.com.matheussvb.model.RestResponse;
 import br.com.matheussvb.model.cliente.ClienteRequest;
 import br.com.matheussvb.model.cliente.ClienteResponse;
@@ -29,7 +29,7 @@ public class ClienteController {
     public RestResponse<ClienteResponse> save(@RequestBody @Valid ClienteRequest cliente) {
         return new RestResponse<>(modelMapper.map(
                 clientePort.save(
-                        modelMapper.map(cliente, Cliente.class)
+                        modelMapper.map(cliente, ClienteDTO.class)
                 ), ClienteResponse.class)
         );
     }
@@ -50,16 +50,18 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Integer id,
                        @RequestBody @Valid ClienteRequest cliente) {
-        Cliente c = Cliente.builder()
+        ClienteDTO c = ClienteDTO.builder()
                 .cpf(cliente.getCpf())
                 .nome(cliente.getNome())
                 .build();
         clientePort.update(id, c);
     }
 
+
+
     @GetMapping
     public RestResponse<List<ClienteResponse>> find(ClienteRequest cliente) {
-        List<Cliente> all = clientePort.findAll(modelMapper.map(cliente, Cliente.class));
+        List<ClienteDTO> all = clientePort.findAll(modelMapper.map(cliente, ClienteDTO.class));
 
         List<ClienteResponse> response = all.stream().map(
                 cli -> ClienteResponse.builder()

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +26,7 @@ public class ClienteEntity {
     private String cpf;
 
 //    @OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
-//    private Set<Pedido> pedidos;
+//    private Set<PedidoEntity> pedidos;
 
     public ClienteEntity(Integer id, String nome) {
         this.id = id;

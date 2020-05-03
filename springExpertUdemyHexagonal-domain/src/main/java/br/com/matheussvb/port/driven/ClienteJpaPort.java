@@ -1,15 +1,15 @@
 package br.com.matheussvb.port.driven;
 
-import br.com.matheussvb.model.Cliente;
+import br.com.matheussvb.model.ClienteDTO;
 
 import java.util.List;
 
 public interface ClienteJpaPort {
 
-    Cliente getClienteById(Integer id);
-    Cliente save(Cliente cliente);
+    ClienteDTO getClienteById(Integer id);
+    ClienteDTO save(ClienteDTO cliente);
     void deletar(Integer id);
-    void update(Cliente cliente);
-    List<Cliente> findAll(Cliente cliente);
+    void update(ClienteDTO cliente);
+    List<ClienteDTO> findAll(ClienteDTO cliente);
 
 }

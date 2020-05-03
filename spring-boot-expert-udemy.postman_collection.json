@@ -1,0 +1,333 @@
+{
+	"id": "7437009a-ce1c-458f-b9a9-52abb260337a",
+	"name": "spring-boot-expert-udemy",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"24e7bb52-26de-4af9-9620-11fc334ecb2f",
+		"b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+		"5715f826-a155-47e3-b457-272897645d34"
+	],
+	"protocolProfileBehavior": {},
+	"folders": [
+		{
+			"id": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"name": "CLIENTE",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "7437009a-ce1c-458f-b9a9-52abb260337a",
+			"folder": null,
+			"order": [
+				"209ff473-6694-4e45-b8ef-dacafddba4d8",
+				"d2874ff4-0e62-49a9-a529-c1ff46006d33",
+				"4c74b29a-ae39-4515-a52f-519201fc61c2",
+				"2512e7db-d2b2-4921-9333-897760f40a38",
+				"bbcf1c50-7569-45f2-b728-2730e47efa18"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "5715f826-a155-47e3-b457-272897645d34",
+			"name": "PEDIDO",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "7437009a-ce1c-458f-b9a9-52abb260337a",
+			"folder": null,
+			"order": [
+				"4c3dde1f-67ad-4777-ae02-239a2bd3c97a",
+				"6d48a9ab-bb74-44e1-bd6a-aed6e3656dcf",
+				"12af5dfc-b55b-4212-91b3-d51ddc0c4d08"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"name": "PRODUTO",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "7437009a-ce1c-458f-b9a9-52abb260337a",
+			"folder": null,
+			"order": [
+				"f6b939d7-fe35-45d7-a0e0-c93cba31d50e",
+				"a090a54f-2b6e-4089-b39a-5336bb26879a",
+				"cb0b97b8-8ef8-472b-b0d2-dd58120483e4",
+				"d7aa716e-f45c-4255-a416-4c6c4308de2f",
+				"507bb27e-5f11-4dce-85c1-4d2afdd8710e"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"requests": [
+		{
+			"id": "12af5dfc-b55b-4212-91b3-d51ddc0c4d08",
+			"name": "PUT NOVO_STATUS",
+			"url": "http://localhost:8080/api/pedidos/1",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "5715f826-a155-47e3-b457-272897645d34",
+			"rawModeData": "{\n\t\"novoStatus\": \"REALIZADO\"\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "209ff473-6694-4e45-b8ef-dacafddba4d8",
+			"name": "GET CLIENTE",
+			"url": "http://localhost:8080/api/clientes/1",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"pathVariables": {}
+		},
+		{
+			"id": "2512e7db-d2b2-4921-9333-897760f40a38",
+			"name": "PUT CLIENTE",
+			"url": "http://localhost:8080/api/clientes/2",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"rawModeData": "{\r\n    \"id\": 2,\r\n    \"nome\": \"Fulano\",\r\n    \"cpf\": \"41116304805\"\r\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "4c3dde1f-67ad-4777-ae02-239a2bd3c97a",
+			"name": "POST PEDIDO",
+			"url": "http://localhost:8080/api/pedidos",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "5715f826-a155-47e3-b457-272897645d34",
+			"rawModeData": "{\n\t\"cliente\": 1,\n\t\"total\": 10,\n\t\"itens\": [\n\t\t{\n\t\t\t\"produto\": 2,\n\t\t\t\"quantidade\": 2\n\t\t}\t\n\t]\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "4c74b29a-ae39-4515-a52f-519201fc61c2",
+			"name": "DELETE CLIENTE",
+			"url": "http://localhost:8080/api/clientes/4",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"pathVariables": {}
+		},
+		{
+			"id": "507bb27e-5f11-4dce-85c1-4d2afdd8710e",
+			"name": "DELETE PRODUTO",
+			"url": "http://localhost:8080/api/produtos/7",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"pathVariables": {}
+		},
+		{
+			"id": "6d48a9ab-bb74-44e1-bd6a-aed6e3656dcf",
+			"name": "GET PEDIDO",
+			"url": "http://localhost:8080/api/pedidos/1",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "5715f826-a155-47e3-b457-272897645d34",
+			"pathVariables": {}
+		},
+		{
+			"id": "a090a54f-2b6e-4089-b39a-5336bb26879a",
+			"name": "PUT ATUALIZADO PRODUTO",
+			"url": "http://localhost:8080/api/produtos/7",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"rawModeData": "{\n    \"id\": 3,\n    \"descricao\": \"Mouse Gamer\",\n    \"preco\": 700\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "bbcf1c50-7569-45f2-b728-2730e47efa18",
+			"name": "GET CLIENTES FIND_ALL EXAMPLE",
+			"url": "http://localhost:8080/api/clientes/?nome=f",
+			"description": "",
+			"data": null,
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "nome",
+					"value": "f",
+					"description": null,
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"pathVariables": {}
+		},
+		{
+			"id": "cb0b97b8-8ef8-472b-b0d2-dd58120483e4",
+			"name": "GET PRODUTO",
+			"url": "http://localhost:8080/api/produtos/3",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"pathVariables": {}
+		},
+		{
+			"id": "d2874ff4-0e62-49a9-a529-c1ff46006d33",
+			"name": "POST SAVE CLIENTE",
+			"url": "http://localhost:8080/api/clientes/",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "24e7bb52-26de-4af9-9620-11fc334ecb2f",
+			"rawModeData": "{\n\t\"nome\":\"Matheus\",\n\t\"cpf\": \"41116304805\"\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "d7aa716e-f45c-4255-a416-4c6c4308de2f",
+			"name": "GET LISTA PRODUTOS",
+			"url": "http://localhost:8080/api/produtos/",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"pathVariables": {}
+		},
+		{
+			"id": "f6b939d7-fe35-45d7-a0e0-c93cba31d50e",
+			"name": "POST PRODUTO",
+			"url": "http://localhost:8080/api/produtos/",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "b016ffe8-e952-4e6e-9ff4-9ace2feb9e28",
+			"rawModeData": "{\n\t\"descricao\": \"Impressora\",\n\t\"preco\": 700\n}",
+			"pathVariables": {}
+		}
+	]
+}
