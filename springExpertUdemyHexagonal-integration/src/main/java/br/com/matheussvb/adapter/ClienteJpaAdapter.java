@@ -1,10 +1,15 @@
 package br.com.matheussvb.adapter;
 
 import br.com.matheussvb.entity.ClienteEntity;
+import br.com.matheussvb.entity.ItemPedidoEntity;
+import br.com.matheussvb.entity.PedidoEntity;
 import br.com.matheussvb.exception.ClienteNotFoundException;
 import br.com.matheussvb.model.ClienteDTO;
+import br.com.matheussvb.model.pedido.PedidoDTO;
+import br.com.matheussvb.model.pedido.itempedido.ItemPedidoDTO;
 import br.com.matheussvb.port.driven.ClienteJpaPort;
 import br.com.matheussvb.repository.ClienteRepository;
+import org.apache.commons.collections4.CollectionUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +18,11 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service("ClienteJpaAdapter")
 public class ClienteJpaAdapter implements ClienteJpaPort {
@@ -30,10 +39,37 @@ public class ClienteJpaAdapter implements ClienteJpaPort {
                 .orElseThrow(
                         () -> new ClienteNotFoundException("Cliente não encontrado")
                 );
+
+        List<PedidoDTO> lista = new ArrayList<>();
+
+
+        for(PedidoEntity pedidoEntity : c.getPedidos()){
+            PedidoDTO pedidoDTO = new PedidoDTO();
+            pedidoDTO.setCliente(pedidoEntity.getCliente().getId());
+            pedidoDTO.setTotal(pedidoEntity.getTotal());
+            for(ItemPedidoEntity itemPedidoEntity : pedidoEntity.getItens()){
+                ItemPedidoDTO itemPedidoDTO = new ItemPedidoDTO();
+                itemPedidoDTO.setProduto(Integer.valueOf());
+                pedidoDTO.setItens(pedidoEntity.getItens());
+            }
+        }
+
+        CollectionUtils.addAll(lista, c.getPedidos());
+
+;        for(PedidoDTO pedidoDTO : c.getPedidos()){
+
+        }
+
+        PedidoDTO pedidoDTO = PedidoDTO.builder()
+                .itens(c.getPedidos())
+
+
+
         return ClienteDTO.builder()
                 .nome(c.getNome())
                 .cpf(c.getCpf())
                 .id(c.getId())
+                .pedidos(pedidosDtoSet)
                 .build();
     }
 

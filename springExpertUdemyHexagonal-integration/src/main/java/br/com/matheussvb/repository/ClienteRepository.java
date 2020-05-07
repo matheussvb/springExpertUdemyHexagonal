@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,8 +22,9 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Integer>
 
     boolean existsByNome(String nome);
 
-//    @Query(" select c from ClienteEntity c left join fetch c.pedidos where c.id = :id  ")
-//    ClienteEntity findClienteFetchPedidos(@Param("id") Integer id);
+    @Query(" select c from ClienteEntity c left join fetch c.pedidos where c.id = :id  ")
+    @Transactional
+    ClienteEntity findClienteFetchPedidos( @Param("id") Integer id );
 
 }
 

@@ -1,12 +1,12 @@
 package br.com.matheussvb.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.com.matheussvb.model.StatusPedido;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,9 +20,9 @@ public class PedidoEntity {
     @Column(name = "id")
     private Integer id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "cliente_id")
-//    private ClienteEntity cliente;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private ClienteEntity cliente;
 
     @Column(name = "data_pedido")
     private LocalDate dataPedido;
@@ -30,12 +30,10 @@ public class PedidoEntity {
     @Column(name = "total", precision = 20, scale = 2)
     private BigDecimal total;
 
-//    @Enumerated(EnumType.STRING)
-//    @Column(name = "status")
-//    private StatusPedido status;
-//
-//    @OneToMany(mappedBy = "pedido")
-//    private List<ItemPedido> itens;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StatusPedido status;
 
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedidoEntity> itens;
 }
-
